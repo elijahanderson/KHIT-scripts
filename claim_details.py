@@ -31,9 +31,6 @@ def claim_details():
     total_row = {'invoice_number_x': None, 'payor_name': None, 'actual_date': 'Grand Totals:',
                  'amount_expected': totals['amount_expected'], 'total_amount_paid': totals['total_amount_paid'],
                  'procedure_name': None, 'procedure_code': None, 'full_name': None, 'staff_name': None}
-    empty_row = {'invoice_number_x': None, 'payor_name': None, 'actual_date': None,
-                 'amount_expected': None, 'total_amount_paid': None,
-                 'procedure_name': None, 'procedure_code': None, 'full_name': None, 'staff_name': None}
 
     sums = csv.groupby(['payor_name', 'staff_name'])['amount_expected', 'total_amount_paid'].sum()
     payors = csv.payor_name.unique()
