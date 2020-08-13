@@ -36,19 +36,20 @@ def claim_details():
                 'procedure_code': None, 'client_name': None, 'staff_name': None}
         csv = csv.append(irow, ignore_index=True)
         for jdx, jsum in sums.loc[payor].iterrows():
-            jrow = {'invoice_number': None, 'payor_name': None, 'actual_date': jdx,
+            jrow = {'invoice_number': None, 'payor_name': payor, 'actual_date': jdx,
                     'amount_expected': jsum['amount_expected'], 'total_amount_paid': jsum['total_amount_paid'],
                     'procedure_code': None, 'client_name': None, 'staff_name': None}
             csv = csv.append(jrow, ignore_index=True)
-
-    csv['amount_expected'] = csv['amount_expected'].apply(lambda val: '${:,.2f}'.format(val))
-    csv['total_amount_paid'] = csv['total_amount_paid'].apply(lambda val: '${:,.2f}'.format(val))
+        csv = csv.append({'invoice_number': None, 'payor_name': None, 'actual_date': None,
+                          'amount_expected': None, 'total_amount_paid': None,
+                          'procedure_code': None, 'client_name': None, 'staff_name': None}, ignore_index=True)
 
     csv = csv.append(pd.Series(), ignore_index=True)
     csv = csv.append(total_row, ignore_index=True)
 
-    csv.iloc[len(csv) - 1, 3] = '${:,.2f}'.format(csv.iloc[len(csv) - 1, 3])
-    csv.iloc[len(csv) - 1, 4] = '${:,.2f}'.format(csv.iloc[len(csv) - 1, 4])
+    csv['amount_expected'] = csv['amount_expected'].apply(lambda val: '${:,.2f}'.format(val))
+    csv['total_amount_paid'] = csv['total_amount_paid'].apply(lambda val: '${:,.2f}'.format(val))
+    csv = csv.replace('$nan', '')
 
     csv.to_csv(filename, index=False)
 
