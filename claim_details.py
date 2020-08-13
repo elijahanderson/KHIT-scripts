@@ -5,21 +5,15 @@ import pandas as pd
 def claim_details():
     filename = "C:/Users/mingus/Documents/" + str(dt.now().month) + "-" + str(dt.now().year) + "_claim_details.csv"
 
-    claim_details_csv = pd.read_csv("C:/Users/mingus/Documents/claim_details.csv")
-    services_csv = pd.read_csv("C:/Users/mingus/Documents/services.csv")
+    csv = pd.read_csv("C:/Users/mingus/Documents/claim_details.csv")
 
-    claim_details_csv["full_name"] = (
-                claim_details_csv["last_name"] + ", " + claim_details_csv["first_name"]).str.strip()
-    services_csv["full_name"] = services_csv["full_name"].str.strip()
+    csv["client_name"] = csv["client_name"].str.strip()
 
-    services_csv["actual_date"] = pd.to_datetime(services_csv.actual_date).dt.date
-    claim_details_csv["from_date"] = pd.to_datetime(claim_details_csv.from_date).dt.date
-    claim_details_csv = claim_details_csv.rename(columns={'from_date': 'actual_date'})
+    csv["from_date"] = pd.to_datetime(csv.from_date).dt.date
+    csv = csv.rename(columns={'from_date': 'actual_date'})
 
-    csv = claim_details_csv.merge(services_csv, on=["full_name", "actual_date"])
-    csv = csv.drop_duplicates(keep=False)
-    csv = csv[["invoice_number_x", "payor_name", "actual_date", "amount_expected", "total_amount_paid",
-               "procedure_name", "procedure_code", "full_name", "staff_name"]]
+    csv = csv[["invoice_number", "payor_name", "actual_date", "amount_expected", "total_amount_paid",
+               "procedure_code", "client_name", "staff_name"]]
     csv.sort_values(by=['payor_name', 'staff_name', 'procedure_code', 'actual_date', ], inplace=True)
 
     csv.to_csv(filename, index=False)
@@ -28,23 +22,23 @@ def claim_details():
     csv['total_amount_paid'] = csv['total_amount_paid'].replace('[\$]', '', regex=True).astype(float)
 
     totals = csv.sum(axis=0, skipna=True)
-    total_row = {'invoice_number_x': None, 'payor_name': None, 'actual_date': 'Grand Totals:',
+    total_row = {'invoice_number': None, 'payor_name': None, 'actual_date': 'Grand Totals:',
                  'amount_expected': totals['amount_expected'], 'total_amount_paid': totals['total_amount_paid'],
-                 'procedure_name': None, 'procedure_code': None, 'full_name': None, 'staff_name': None}
+                 'procedure_code': None, 'client_name': None, 'staff_name': None}
 
     sums = csv.groupby(['payor_name', 'staff_name'])['amount_expected', 'total_amount_paid'].sum()
     payors = csv.payor_name.unique()
 
     for payor in payors:
-        irow = {'invoice_number_x': None, 'payor_name': payor, 'actual_date': 'Totals:',
+        irow = {'invoice_number': None, 'payor_name': payor, 'actual_date': 'Totals:',
                 'amount_expected': sums.loc[payor]['amount_expected'].sum(),
                 'total_amount_paid': sums.loc[payor]['total_amount_paid'].sum(),
-                'procedure_name': None, 'procedure_code': None, 'full_name': None, 'staff_name': None}
+                'procedure_code': None, 'client_name': None, 'staff_name': None}
         csv = csv.append(irow, ignore_index=True)
         for jdx, jsum in sums.loc[payor].iterrows():
-            jrow = {'invoice_number_x': None, 'payor_name': None, 'actual_date': jdx,
+            jrow = {'invoice_number': None, 'payor_name': None, 'actual_date': jdx,
                     'amount_expected': jsum['amount_expected'], 'total_amount_paid': jsum['total_amount_paid'],
-                    'procedure_name': None, 'procedure_code': None, 'full_name': None, 'staff_name': None}
+                    'procedure_code': None, 'client_name': None, 'staff_name': None}
             csv = csv.append(jrow, ignore_index=True)
 
     csv['amount_expected'] = csv['amount_expected'].apply(lambda val: '${:,.2f}'.format(val))
