@@ -1,9 +1,12 @@
+from datetime import datetime as dt
 import matplotlib.pyplot as plt
 import pandas as pd
 
 
 def program_referrals():
-    xl_writer = pd.ExcelWriter('C:/Users/mingus/Documents/program_referrals.xlsx', engine='xlsxwriter')
+    filename = "C:/Users/mingus/Documents/" + str(dt.now().month) + "-" + str(dt.now().year) + "_program_referrals.xlsx"
+
+    xl_writer = pd.ExcelWriter(filename, engine='xlsxwriter')
     df = pd.read_csv('C:/Users/mingus/Documents/program_referrals.csv')
 
     df.to_excel(xl_writer, sheet_name='Program Referrals', index=False)
