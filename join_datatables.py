@@ -22,8 +22,8 @@ def join_datatables():
     merged = merged.rename(columns={'worker_name': 'primary_worker'})
     merged['expiration_date'] = pd.to_datetime(merged.expiration_date)
     merged.sort_values(by=['primary_worker', 'expiration_date'], inplace=True, ascending=[True, True])
-    merged.to_csv("C:/Users/mingus/Documents/" + str(dt.now().month + 1) + "-" + str(dt.now().year) +
-                  "_treatment_plan_due_dates.csv", index=False)
+    merged.to_csv("C:/Users/mingus/Documents/" + str(dt.now().month + 1) + "-" + str(dt.now().month + 2) + "-" +
+                  str(dt.now().year) + "_treatment_plan_due_dates.csv", index=False)
 
 
 join_datatables()
