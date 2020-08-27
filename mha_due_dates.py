@@ -13,10 +13,7 @@ def mha_due_dates():
 
     merged = mha_csv.merge(staff_csv, on='name')
     merged['due_date'] = pd.to_datetime(merged.due_date)
-    merged.sort_values(by=['name', 'due_date'], inplace=True, ignore_index=True, ascending=[True, True])
+    merged.sort_values(by=['name', 'due_date'], inplace=True, ascending=[True, True])
 
     merged.to_csv("C:/Users/mingus/Documents/" + str(dt.now().month + 1) + "-" + str(dt.now().month + 2) + "-" +
                   str(dt.now().year) + "_mha_due_dates.csv", index=False)
-
-
-mha_due_dates()
