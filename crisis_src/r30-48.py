@@ -17,7 +17,5 @@ def r30_48():
 
     df.to_csv(filename, index=False)
 
-    return True
-
 
 r30_48()
