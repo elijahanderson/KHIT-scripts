@@ -1,5 +1,5 @@
 import pandas as pd
-import time
+from datetime import date
 
 
 def r30_48():
@@ -15,24 +15,51 @@ def r30_48():
         if 'Crisis Screening Services' not in frame['program_name'].values:
             df = df.drop(frame['program_name'].index)
 
-    crisis_src = pd.read_excel('C:/Users/mingus/Documents/crisis_src.xlsx')
+    crisis_src = pd.read_excel('C:/Users/mingus/Documents/crisis_sfy_2021.xlsx')
     crisis_src = crisis_src.rename(columns={
         'Name of Designated Screening Center: Oaks Integrated Care       \n\nCounty: Camden': 'desc'})
-    # TODO -- insert current month, not aug_2020
-    crisis_src.insert(loc=crisis_src.columns.get_loc('jun_2020') + 1, column='aug_2020', value=0)
+    curr_date = date.today().strftime('%b_%Y').lower()
     crisis_src.loc[44, 'desc'] = 'Involuntary Outpatient Commitment'
 
     for program in df['program_name']:
         if program != 'Crisis Screening Services':
-            # TODO -- Go through program list on myEvolv to match the rest up
-            if 'ICMS' in program:
-                crisis_src.loc[34, 'aug_2020'] = crisis_src.loc[34, 'aug_2020'] + 1
+            # TODO -- ask Oaks, cuz program names don't match up
+            if 'Jail' in program:
+                crisis_src.loc[28, curr_date] = crisis_src.loc[32, curr_date] + 1
+            # Affiliated Emergency Services?
+            elif 'IOTSS' in program:
+                crisis_src.loc[30, curr_date] = crisis_src.loc[30, curr_date] + 1
+            elif 'PACT' in program:
+                crisis_src.loc[31, curr_date] = crisis_src.loc[31, curr_date] + 1
+            elif 'Partial Care' in program:
+                crisis_src.loc[32, curr_date] = crisis_src.loc[32, curr_date] + 1
+            elif 'Adult Outpatient' in program:
+                crisis_src.loc[33, curr_date] = crisis_src.loc[33, curr_date] + 1
+            elif 'ICMS' in program:
+                crisis_src.loc[34, curr_date] = crisis_src.loc[34, curr_date] + 1
+            elif ('Supportive Housing' in program) or ('Housing Stabilization' in program) or \
+                    ('Residential Intensive' in program):
+                crisis_src.loc[35, curr_date] = crisis_src.loc[35, curr_date] + 1
+            # Other DMHS Funded Residential Program (e.g. group home)?
+            elif 'PATH' in program:
+                crisis_src.loc[37, curr_date] = crisis_src.loc[37, curr_date] + 1
+            elif 'Justice Involved' in program:
+                crisis_src.loc[38, curr_date] = crisis_src.loc[38, curr_date] + 1
+            # Other Mental Health Services?
+            # Nursing Facility /Assisted Living?
+            # Substance Abuse Program? (maybe Addictions)
+            # Veterans Admin Program?
+            # Family?
             elif 'Involuntary Outpatient Commitment' in program:
-                crisis_src.loc[44, 'aug_2020'] = crisis_src.loc[44, 'aug_2020'] + 1
+                crisis_src.loc[44, curr_date] = crisis_src.loc[44, curr_date] + 1
             else:
-                crisis_src.loc[45, 'aug_2020'] = crisis_src.loc[45, 'aug_2020'] + 1
+                crisis_src.loc[45, curr_date] = crisis_src.loc[45, curr_date] + 1
 
-    xl_writer = pd.ExcelWriter('C:/Users/mingus/Documents/crisis_src_2.xlsx', engine='xlsxwriter')
+    # sum each program
+    for idx, row in crisis_src.loc[28:45, :].iterrows():
+        crisis_src.loc[idx, 'SFY 2021 Total'] = row.iloc[4:16].sum()
+
+    xl_writer = pd.ExcelWriter('C:/Users/mingus/Documents/crisis_sfy_2021_2.xlsx', engine='xlsxwriter')
     crisis_src.to_excel(xl_writer, sheet_name='crisis_src', index=False)
     xl_writer.save()
 
