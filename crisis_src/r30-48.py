@@ -3,8 +3,6 @@ from datetime import date
 
 
 def r30_48():
-    filename = 'C:/Users/mingus/Documents/r30-48n.csv'
-
     df = pd.read_csv('C:/Users/mingus/Documents/r30-48.csv')
     df.sort_values(by=['full_name', 'actual_date'], inplace=True)
     df = df[df.duplicated(subset=['full_name'], keep=False)]
@@ -15,11 +13,8 @@ def r30_48():
         if 'Crisis Screening Services' not in frame['program_name'].values:
             df = df.drop(frame['program_name'].index)
 
-    crisis_src = pd.read_excel('C:/Users/mingus/Documents/crisis_sfy_2021.xlsx')
-    crisis_src = crisis_src.rename(columns={
-        'Name of Designated Screening Center: Oaks Integrated Care       \n\nCounty: Camden': 'desc'})
+    crisis_src = pd.read_excel('crisis_sfy_2021.xlsx')
     curr_date = date.today().strftime('%b_%Y').lower()
-    crisis_src.loc[44, 'desc'] = 'Involuntary Outpatient Commitment'
 
     for program in df['program_name']:
         if program != 'Crisis Screening Services':
@@ -59,7 +54,7 @@ def r30_48():
     for idx, row in crisis_src.loc[28:45, :].iterrows():
         crisis_src.loc[idx, 'SFY 2021 Total'] = row.iloc[4:16].sum()
 
-    xl_writer = pd.ExcelWriter('C:/Users/mingus/Documents/crisis_sfy_2021_2.xlsx', engine='xlsxwriter')
+    xl_writer = pd.ExcelWriter('crisis_sfy_2021.xlsx', engine='xlsxwriter')
     crisis_src.to_excel(xl_writer, sheet_name='crisis_src', index=False)
     xl_writer.save()
 
