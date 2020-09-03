@@ -22,6 +22,9 @@ def r21():
         if date_diff < 30:  # TODO -- might need to elaborate condition
             crisis_src.loc[19, curr_date] = crisis_src.loc[19, curr_date] + 1
 
+    # sum the row
+    crisis_src.loc[19, 'SFY 2021 Total'] = crisis_src.iloc[19, 4:16].sum()
+
     xl_writer = pd.ExcelWriter('crisis_sfy_2021.xlsx', engine='xlsxwriter')
     crisis_src.to_excel(xl_writer, sheet_name='crisis_src', index=False)
     xl_writer.save()

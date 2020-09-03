@@ -18,10 +18,10 @@ def r30_48():
 
     for program in df['program_name']:
         if program != 'Crisis Screening Services':
-            # TODO -- ask Oaks, cuz program names don't match up
             if 'Jail' in program:
-                crisis_src.loc[28, curr_date] = crisis_src.loc[32, curr_date] + 1
-            # Affiliated Emergency Services?
+                crisis_src.loc[28, curr_date] = crisis_src.loc[28, curr_date] + 1
+            elif 'EISS' in program:
+                crisis_src.loc[29, curr_date] = crisis_src.loc[29, curr_date] + 1
             elif 'IOTSS' in program:
                 crisis_src.loc[30, curr_date] = crisis_src.loc[30, curr_date] + 1
             elif 'PACT' in program:
@@ -35,16 +35,25 @@ def r30_48():
             elif ('Supportive Housing' in program) or ('Housing Stabilization' in program) or \
                     ('Residential Intensive' in program):
                 crisis_src.loc[35, curr_date] = crisis_src.loc[35, curr_date] + 1
-            # Other DMHS Funded Residential Program (e.g. group home)?
+            elif ('Oasis II' in program) or ('Homestretch' in program) or ('Children\'s Residential' in program) or \
+                    ('Harvey\'s Haven' in program) or ('Medford Meadows' in program):
+                crisis_src.loc[36, curr_date] = crisis_src.loc[36, curr_date] + 1
             elif 'PATH' in program:
                 crisis_src.loc[37, curr_date] = crisis_src.loc[37, curr_date] + 1
             elif 'Justice Involved' in program:
                 crisis_src.loc[38, curr_date] = crisis_src.loc[38, curr_date] + 1
-            # Other Mental Health Services?
-            # Nursing Facility /Assisted Living?
-            # Substance Abuse Program? (maybe Addictions)
-            # Veterans Admin Program?
-            # Family?
+            elif ('Strengthening Families' in program) or ('Behavioral Health Home' in program) or ('FPS' in program) \
+                    or ('CHR-P' in program) or ('Mobile Response' in program) or ('Clinical In-Home' in program) \
+                    or ('PACS' in program) or ('Coordinated Specialty' in program) or ('Oasis Ancora' in program) \
+                    or ('CCBHC' in program) or ('Pat Lebon' in program) or ('Keeping Families' in program) \
+                    or ('Crisis Diversion' in program) or ('Trauma Informed' in program) or ('IFSS' in program):
+                crisis_src.loc[39, curr_date] = crisis_src.loc[39, curr_date] + 1
+            # Nursing Facility /Assisted Living always 0
+            elif ('Straight to Treatment' in program) or ('STAR' in program) or ('Addictions' in program) \
+                    or ('Opioid' in program):
+                crisis_src.loc[41, curr_date] = crisis_src.loc[41, curr_date] + 1
+            # Veterans Admin Program always 0
+            # Family always 0
             elif 'Involuntary Outpatient Commitment' in program:
                 crisis_src.loc[44, curr_date] = crisis_src.loc[44, curr_date] + 1
             else:
