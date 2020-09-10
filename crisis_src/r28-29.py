@@ -1,12 +1,11 @@
 import pandas as pd
-import datetime
 from datetime import date, datetime
 
 
 def r28_29():
     df = pd.read_csv('C:/Users/mingus/Documents/r28-29.csv')
     df.sort_values(by=['full_name', 'actual_date'], inplace=True)
-    # df = df[df.duplicated(subset=['full_name'], keep=False)]
+    df = df[df.duplicated(subset=['full_name'], keep=False)]
     df = df.reset_index(drop=True)
     df["actual_date"] = pd.to_datetime(df.actual_date)
     df = df.rename(columns={'actual_date': 'date', 'actual_date.1': 'time'})
