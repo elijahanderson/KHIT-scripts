@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7f09f7cd-a22b-474b-aee7-7537f4fb6d52" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/crisis_src/r17.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crisis_src/crisis_sfy_2021.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/crisis_src/crisis_sfy_2021.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crisis_src/r28-29.py" beforeDir="false" afterPath="$PROJECT_DIR$/crisis_src/r28-29.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crisis_src/r17.py" beforeDir="false" afterPath="$PROJECT_DIR$/crisis_src/r17.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +28,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
@@ -183,22 +182,22 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="1220" y="296" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1599247951802" />
-    <state width="930" height="287" key="GridCell.Tab.0.bottom" timestamp="1599777434396">
+    <state width="930" height="287" key="GridCell.Tab.0.bottom" timestamp="1599777741573">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="930" height="287" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1599777434396" />
-    <state width="930" height="287" key="GridCell.Tab.0.center" timestamp="1599777434396">
+    <state width="930" height="287" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1599777741573" />
+    <state width="930" height="287" key="GridCell.Tab.0.center" timestamp="1599777741573">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="930" height="287" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1599777434396" />
-    <state width="930" height="287" key="GridCell.Tab.0.left" timestamp="1599777434396">
+    <state width="930" height="287" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1599777741573" />
+    <state width="930" height="287" key="GridCell.Tab.0.left" timestamp="1599777741573">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="930" height="287" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1599777434396" />
-    <state width="930" height="287" key="GridCell.Tab.0.right" timestamp="1599777434396">
+    <state width="930" height="287" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1599777741573" />
+    <state width="930" height="287" key="GridCell.Tab.0.right" timestamp="1599777741573">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="930" height="287" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1599777434396" />
+    <state width="930" height="287" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1599777741573" />
     <state width="936" height="362" key="GridCell.Tab.1.bottom" timestamp="1599076734643">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
