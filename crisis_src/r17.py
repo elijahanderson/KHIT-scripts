@@ -19,7 +19,7 @@ def r17():
     df["actual_date"] = pd.to_datetime(df.actual_date)
     df["end_date"] = pd.to_datetime(df.end_date)
     # rename for legibility
-    df = df.rename(columns={'actual_date.1': 'start_time', 'end_date.1':'end_time'})
+    df = df.rename(columns={'actual_date.1': 'start_time', 'end_date.1': 'end_time'})
 
     curr_date = date.today().strftime('%b_%Y').lower()
     crisis_src = pd.read_excel('crisis_sfy_2021.xlsx')
@@ -29,8 +29,7 @@ def r17():
     for idx, row in df.iterrows():
         start_date = str(row['actual_date'])[0:10] + ' ' + str(row['start_time'])
         end_date = str(row['end_date'])[0:10] + ' ' + str(row['end_time'])
-        tdelta = datetime.strptime(end_date, time_format) - \
-                 datetime.strptime(start_date, time_format)
+        tdelta = datetime.strptime(end_date, time_format) - datetime.strptime(start_date, time_format)
         hr_diff = tdelta.seconds / 3600
 
         if 4.0 <= hr_diff <= 24.0 and tdelta.days == 0:

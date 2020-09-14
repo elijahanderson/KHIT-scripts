@@ -1,25 +1,43 @@
 import pandas as pd
-from datetime import date
+from datetime import date, datetime
 
 
 def r21():
+    """
+        -- r21 --
+        description:    Adults who have been discharged and readmitted to Crisis in fewer than 30 days.
+        author notes:   Enrollment end dates include the previous as well as the current month due to the report
+                        requirements.
+    """
     df = pd.read_csv('C:/Users/mingus/Documents/r21.csv')
     df["actual_date"] = pd.to_datetime(df.actual_date)
     df["end_date"] = pd.to_datetime(df.end_date)
     df.sort_values(by=['full_name', 'actual_date'], inplace=True)
+    # Drop unique rows -- target clients will have more than one enrollment event
     df = df[df.duplicated(subset=['full_name'], keep=False)]
     df = df.reset_index()
-    df = df[['full_name', 'program_name', 'actual_date', 'end_date']]
+    # convert to datetime for date operations
+    df["actual_date"] = pd.to_datetime(df.actual_date)
+    df["end_date"] = pd.to_datetime(df.end_date)
+    # rename for legibility
+    df = df.rename(columns={'actual_date.1': 'start_time', 'end_date.1': 'end_time'})
 
     by_client = df.groupby('full_name')
     curr_date = date.today().strftime('%b_%Y').lower()
+    time_format = '%Y-%m-%d %I:%M %p'
     crisis_src = pd.read_excel('crisis_sfy_2021.xlsx')
 
+    # for each client
     for client, frame in by_client:
+        # get the 2 most recent enrollments
         frame = frame.tail(2)
         frame = frame.reset_index()
-        date_diff = int(str(frame.loc[1, 'actual_date'] - frame.loc[0, 'end_date']).split(' ')[0])
-        if date_diff < 30:  # TODO -- might need to elaborate condition
+
+        start_date = str(frame.loc[1, 'actual_date'])[0:10] + ' ' + str(frame.loc[1, 'start_time'])
+        end_date = str(frame.loc[0, 'end_date'])[0:10] + ' ' + str(frame.loc[0, 'end_time'])
+        tdelta = datetime.strptime(end_date, time_format) - datetime.strptime(start_date, time_format)
+        # if there were fewer than 30 days between the 2, increment row 21 of the megareport
+        if tdelta.days < 30:
             crisis_src.loc[19, curr_date] = crisis_src.loc[19, curr_date] + 1
 
     # sum the row
