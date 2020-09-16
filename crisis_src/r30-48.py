@@ -3,6 +3,11 @@ from datetime import date
 
 
 def r30_48():
+    """
+        -- r18-20 --
+        description:    Adults with Substance Use, Cognitive, or Developmental Treatment Diagnoses
+        author notes:
+    """
     df = pd.read_csv('C:/Users/mingus/Documents/r30-48.csv')
     df.sort_values(by=['full_name', 'actual_date'], inplace=True)
     df = df[df.duplicated(subset=['full_name'], keep=False)]

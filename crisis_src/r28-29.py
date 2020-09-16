@@ -4,9 +4,9 @@ from datetime import date, datetime
 
 def r28_29():
     """
-            -- r18-20 --
-            description:    Adults with a Crisis Triage event and Outreach event within 1-2 or > 2 hours of each other
-            author notes:   Not a single client that meets specified criteria. Should probably ask Oaks about it.
+        -- r18-20 --
+        description:    Adults with a Crisis Triage event and Outreach event within 1-2 or > 2 hours of each other
+        author notes:   Not a single client that meets specified criteria. Should probably ask Oaks about it.
     """
     df = pd.read_csv('C:/Users/mingus/Documents/r28-29.csv')
     df.sort_values(by=['full_name', 'actual_date'], inplace=True)

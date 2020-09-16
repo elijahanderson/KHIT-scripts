@@ -4,9 +4,9 @@ from datetime import date
 
 def r18_20():
     """
-            -- r18-20 --
-            description:    Adults with Substance Use, Cognitive, or Developmental Treatment Diagnoses
-            author notes:
+        -- r18-20 --
+        description:    Adults with Substance Use, Cognitive, or Developmental Treatment Diagnoses
+        author notes:
     """
     df = pd.read_csv('C:/Users/mingus/Documents/r18-20.csv')
     df.sort_values(by=['full_name'], inplace=True)
