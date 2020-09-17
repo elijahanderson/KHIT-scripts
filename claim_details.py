@@ -13,7 +13,8 @@ def claim_details():
     csv = csv.rename(columns={'from_date': 'actual_date'})
 
     csv = csv[["invoice_number", "payor_name", "actual_date", "amount_expected", "total_amount_paid",
-               "procedure_code", "client_name", "staff_name"]]
+               "procedure_code", "client_name", "staff_name", "units", "facility_name", "facility_street_address_1",
+               "facility_city", "facility_state", "facility_zip_code"]]
     csv.sort_values(by=['payor_name', 'staff_name', 'procedure_code', 'actual_date', ], inplace=True)
 
     csv.to_csv(filename, index=False)
@@ -28,6 +29,8 @@ def claim_details():
 
     sums = csv.groupby(['payor_name', 'staff_name'])['amount_expected', 'total_amount_paid'].sum()
     payors = csv.payor_name.unique()
+
+    csv = csv.append(pd.Series(), ignore_index=True)
 
     for payor in payors:
         irow = {'invoice_number': None, 'payor_name': payor, 'actual_date': 'Totals:',
