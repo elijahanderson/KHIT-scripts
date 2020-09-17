@@ -4,7 +4,7 @@ from datetime import date
 
 def r30_48():
     """
-        -- r18-20 --
+        -- r30-48 --
         description:    Adults admitted to Crisis in current month who are also enrolled in other client_programss/services
         author notes:
     """
@@ -115,7 +115,7 @@ def r30_48():
                     crisis_src.loc[45, curr_date] = crisis_src.loc[45, curr_date] + 1
                     categories_checked.append(45)
 
-    # sum each client_programs
+    # sum each program
     for idx, row in crisis_src.loc[28:45, :].iterrows():
         crisis_src.loc[idx, 'SFY 2021 Total'] = row.iloc[4:16].sum()
 
