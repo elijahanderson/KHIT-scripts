@@ -1,3 +1,4 @@
+import numpy as np
 import pandas as pd
 from datetime import date, datetime
 
@@ -9,8 +10,14 @@ def r28_29():
         author notes:   Not a single client that meets specified criteria. Should probably ask Oaks about it.
     """
     df = pd.read_csv('C:/Users/mingus/Documents/r28-29.csv')
-    df.sort_values(by=['full_name', 'actual_date'], inplace=True)
+    # drop clients w/ only one event during time period
     df = df[df.duplicated(subset=['full_name'], keep=False)]
+    # drop all clients less than 18 y/o
+    today = date.today().strftime('%Y-%m-%d')
+    df["dob"] = pd.to_datetime(df.dob)
+    df['dob'] = df['dob'].apply(lambda dob: (pd.to_datetime(today) - dob) / np.timedelta64(1, 'Y'))
+    df = df[df['dob'] > 18]
+    df.sort_values(by=['full_name', 'actual_date'], inplace=True)
     df = df.reset_index(drop=True)
     # convert to pd datetime for date operations
     df["actual_date"] = pd.to_datetime(df.actual_date)
@@ -19,7 +26,7 @@ def r28_29():
 
     by_client = df.groupby('full_name')
     curr_date = date.today().strftime('%b_%Y').lower()
-    crisis_src = pd.read_excel('crisis_sfy_2021.xlsx')
+    crisis_src = pd.read_excel('D:/KHIT docs/KHIT-scripts/crisis_src/crisis_sfy_2021.xlsx')
     time_format = '%I:%M %p'
 
     # for each client
@@ -46,7 +53,7 @@ def r28_29():
     for idx, row in crisis_src.loc[26:27, :].iterrows():
         crisis_src.loc[idx, 'SFY 2021 Total'] = row.iloc[4:16].sum()
 
-    xl_writer = pd.ExcelWriter('crisis_sfy_2021.xlsx', engine='xlsxwriter')
+    xl_writer = pd.ExcelWriter('D:/KHIT docs/KHIT-scripts/crisis_src/crisis_sfy_2021.xlsx', engine='xlsxwriter')
     crisis_src.to_excel(xl_writer, sheet_name='crisis_src', index=False)
     xl_writer.save()
 

@@ -1,3 +1,4 @@
+import numpy as np
 import pandas as pd
 from datetime import date
 
@@ -9,9 +10,14 @@ def r30_48():
         author notes:
     """
     df = pd.read_csv('C:/Users/mingus/Documents/r30-48.csv')
-    df.sort_values(by=['full_name', 'actual_date'], inplace=True)
+    # drop all clients less than 18 y/o
+    today = date.today().strftime('%Y-%m-%d')
+    df["dob"] = pd.to_datetime(df.dob)
+    df['dob'] = df['dob'].apply(lambda dob: (pd.to_datetime(today) - dob) / np.timedelta64(1, 'Y'))
+    df = df[df['dob'] > 18]
     # drop clients only enrolled in one client_programs
     df = df[df.duplicated(subset=['full_name'], keep=False)]
+    df.sort_values(by=['full_name', 'actual_date'], inplace=True)
     df = df.reset_index()
 
     # drop all clients not enrolled in Crisis
@@ -20,7 +26,7 @@ def r30_48():
         if 'Crisis Screening Services' not in frame['program_name'].values:
             df = df.drop(frame['program_name'].index)
 
-    crisis_src = pd.read_excel('crisis_sfy_2021.xlsx')
+    crisis_src = pd.read_excel('D:/KHIT docs/KHIT-scripts/crisis_src/crisis_sfy_2021.xlsx')
     curr_date = date.today().strftime('%b_%Y').lower()
     program_list = ['Jail', 'EISS', 'IOTSS', 'PACT', 'Partial Care', 'Adult Outpatient', 'ICMS', 'Supportive Housing',
                     'Housing Stabilization', 'Residential Intensive', 'Oasis II', 'Homestretch',
@@ -119,7 +125,7 @@ def r30_48():
     for idx, row in crisis_src.loc[28:45, :].iterrows():
         crisis_src.loc[idx, 'SFY 2021 Total'] = row.iloc[4:16].sum()
 
-    xl_writer = pd.ExcelWriter('crisis_sfy_2021.xlsx', engine='xlsxwriter')
+    xl_writer = pd.ExcelWriter('D:/KHIT docs/KHIT-scripts/crisis_src/crisis_sfy_2021.xlsx', engine='xlsxwriter')
     crisis_src.to_excel(xl_writer, sheet_name='crisis_src', index=False)
     xl_writer.save()
 

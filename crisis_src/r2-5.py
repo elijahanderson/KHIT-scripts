@@ -12,7 +12,7 @@ def main():
     df = pd.read_csv('C:/Users/mingus/Documents/r2-5.csv')
     df['dob'] = pd.to_datetime(df.dob)
 
-    crisis_src = pd.read_excel('crisis_sfy_2021.xlsx')
+    crisis_src = pd.read_excel('D:/KHIT docs/KHIT-scripts/crisis_src/crisis_sfy_2021.xlsx')
     curr_date_col = date.today().strftime('%b_%Y').lower()
     time_format = '%Y-%m-%d'
     curr_date = date.today().strftime(time_format)
@@ -32,7 +32,7 @@ def main():
     for idx, row in crisis_src.loc[0:3, :].iterrows():
         crisis_src.loc[idx, 'SFY 2021 Total'] = row.iloc[4:16].sum()
 
-    xl_writer = pd.ExcelWriter('crisis_sfy_2021.xlsx', engine='xlsxwriter')
+    xl_writer = pd.ExcelWriter('D:/KHIT docs/KHIT-scripts/crisis_src/crisis_sfy_2021.xlsx', engine='xlsxwriter')
     crisis_src.to_excel(xl_writer, sheet_name='crisis_src', index=False)
     xl_writer.save()
 

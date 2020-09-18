@@ -1,3 +1,4 @@
+import numpy as np
 import pandas as pd
 from datetime import date
 
@@ -5,16 +6,21 @@ from datetime import date
 def r18_20():
     """
         -- r18-20 --
-        description:    Adults with Substance Use, Cognitive, or Developmental Treatment Diagnoses
+        description:    Adults in Crisis with Substance Use, Cognitive, or Developmental Treatment Diagnoses
         author notes:
     """
     df = pd.read_csv('C:/Users/mingus/Documents/r18-20.csv')
+    # drop all clients less than 18 y/o
+    today = date.today().strftime('%Y-%m-%d')
+    df["dob"] = pd.to_datetime(df.dob)
+    df['dob'] = df['dob'].apply(lambda dob: (pd.to_datetime(today) - dob) / np.timedelta64(1, 'Y'))
+    df = df[df['dob'] > 18]
     df.sort_values(by=['full_name'], inplace=True)
 
     df = df.rename(columns={'ICD9_ Code': 'category'})
 
     curr_date = date.today().strftime('%b_%Y').lower()
-    crisis_src = pd.read_excel('crisis_sfy_2021.xlsx')
+    crisis_src = pd.read_excel('D:/KHIT docs/KHIT-scripts/crisis_src/crisis_sfy_2021.xlsx')
 
     df['category'] = df['category'].apply(categorize)
 
@@ -32,7 +38,7 @@ def r18_20():
     for idx, row in crisis_src.loc[16:18, :].iterrows():
         crisis_src.loc[idx, 'SFY 2021 Total'] = row.iloc[4:16].sum()
 
-    xl_writer = pd.ExcelWriter('crisis_sfy_2021.xlsx', engine='xlsxwriter')
+    xl_writer = pd.ExcelWriter('D:/KHIT docs/KHIT-scripts/crisis_src/crisis_sfy_2021.xlsx', engine='xlsxwriter')
     crisis_src.to_excel(xl_writer, sheet_name='crisis_src', index=False)
     xl_writer.save()
 
@@ -53,18 +59,20 @@ def categorize(code):
                 '305.72', '305.73', '292.11', '292.12', '292.81', '292.2', '292.84', '292.9', '304.4', '304.41',
                 '304.42', '304.43' '292', '305.3', '305.31', '305.32', '305.33', '304.5', '304.51', '304.52',
                 '304.53', '305.1', '305.9', '305.91', '305.92', '305.93', '304.6', '304.61', '304.62', '304.63',
-                '305.8', '305.81', '305.82', '305.83'],
+                '305.8', '305.81', '305.82', '305.83', 'F10', 'F11', 'F12', 'F13', 'F14', 'F15', 'F16', 'F17', 'F18',
+                'F19'],
         'DD': ['317', '318', '318.1', '318.2', '319', '315.35', '315.39', '315.31', '315.32', '315.34', '315.9',
                '315.09', '315.2', '315.1', '315.01', 'V40.0', '315.4', '299.8', '299.81', '299', '299.01', '299.1',
-               '299.9', '330.9', '315.8'],
-        'DCD': ['331.83', '780.99', '780.97', '293', '293.1']
+               '299.9', '330.9', '315.8', 'F70', 'F71', 'F72', 'F73', 'F78', 'F79', 'F80', 'F81', 'F82', 'F84', 'F88',
+               'F89'],
+        'DCD': ['331.83', '780.99', '780.97', '293', '293.1', 'G31.84', 'R41.9', 'F05']
     }
 
-    if code in icd10_codes['SAD']:
+    if code in icd10_codes['SAD'] or any(icode in code for icode in icd10_codes['SAD']):
         return 'Substance Abuse Disorder'
-    elif code in icd10_codes['DCD']:
+    elif code in icd10_codes['DCD'] or any(icode in code for icode in icd10_codes['SAD']):
         return 'Dementia/Cognitive Disorder'
-    elif code in icd10_codes['DD']:
+    elif code in icd10_codes['DD'] or any(icode in code for icode in icd10_codes['SAD']):
         return 'Developmental Disability'
 
 
