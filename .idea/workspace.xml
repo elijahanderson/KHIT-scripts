@@ -2,15 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7f09f7cd-a22b-474b-aee7-7537f4fb6d52" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/crisis_src/r22-26.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crisis_src/r6-14.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/crisis_src/crisis_sfy_2021.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/crisis_src/crisis_sfy_2021.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crisis_src/r17.py" beforeDir="false" afterPath="$PROJECT_DIR$/crisis_src/r17.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crisis_src/r18-20.py" beforeDir="false" afterPath="$PROJECT_DIR$/crisis_src/r18-20.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crisis_src/r2-5_and_formulas.py" beforeDir="false" afterPath="$PROJECT_DIR$/crisis_src/r2-5.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crisis_src/r21.py" beforeDir="false" afterPath="$PROJECT_DIR$/crisis_src/r21.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crisis_src/r27.py" beforeDir="false" afterPath="$PROJECT_DIR$/crisis_src/r27.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crisis_src/r28-29.py" beforeDir="false" afterPath="$PROJECT_DIR$/crisis_src/r28-29.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crisis_src/r30-48.py" beforeDir="false" afterPath="$PROJECT_DIR$/crisis_src/r30-48.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crisis_src/r2-5.py" beforeDir="false" afterPath="$PROJECT_DIR$/crisis_src/r2-5.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +39,7 @@
       <recent name="D:\KHIT docs\KHIT-scripts\crisis_src" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.r30-48">
+  <component name="RunManager" selected="Python.r6-14">
     <configuration name="r17" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="KHIT-scripts" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -65,7 +61,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="r21" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="r2-5" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="KHIT-scripts" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -77,7 +73,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/crisis_src/r21.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/crisis_src/r2-5.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -86,7 +82,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="r27" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="r22-26" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="KHIT-scripts" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -98,28 +94,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/crisis_src/r27.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="r28-29" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="KHIT-scripts" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/crisis_src" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/crisis_src/r28-29.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/crisis_src/r22-26.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -149,13 +124,34 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="r6-14" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="KHIT-scripts" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/crisis_src" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/crisis_src/r6-14.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.r30-48" />
-        <item itemvalue="Python.r28-29" />
-        <item itemvalue="Python.r27" />
-        <item itemvalue="Python.r21" />
+        <item itemvalue="Python.r6-14" />
+        <item itemvalue="Python.r22-26" />
         <item itemvalue="Python.r17" />
+        <item itemvalue="Python.r2-5" />
+        <item itemvalue="Python.r30-48" />
       </list>
     </recent_temporary>
   </component>
@@ -193,22 +189,22 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="1220" y="296" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1599247951802" />
-    <state width="936" height="285" key="GridCell.Tab.0.bottom" timestamp="1600465171783">
+    <state width="929" height="285" key="GridCell.Tab.0.bottom" timestamp="1600718706992">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="936" height="285" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1600465171783" />
-    <state width="936" height="285" key="GridCell.Tab.0.center" timestamp="1600465171783">
+    <state width="929" height="285" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1600718706992" />
+    <state width="929" height="285" key="GridCell.Tab.0.center" timestamp="1600718706992">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="936" height="285" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1600465171783" />
-    <state width="936" height="285" key="GridCell.Tab.0.left" timestamp="1600465171783">
+    <state width="929" height="285" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1600718706992" />
+    <state width="929" height="285" key="GridCell.Tab.0.left" timestamp="1600718706992">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="936" height="285" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1600465171783" />
-    <state width="936" height="285" key="GridCell.Tab.0.right" timestamp="1600465171783">
+    <state width="929" height="285" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1600718706992" />
+    <state width="929" height="285" key="GridCell.Tab.0.right" timestamp="1600718706992">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="936" height="285" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1600465171783" />
+    <state width="929" height="285" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1600718706992" />
     <state width="953" height="362" key="GridCell.Tab.1.bottom" timestamp="1600130641360">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -233,9 +229,9 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="1136" y="275" width="607" height="536" key="find.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1599772665632" />
-    <state x="1099" y="240" width="672" height="678" key="search.everywhere.popup" timestamp="1600117617966">
+    <state x="1099" y="240" width="672" height="678" key="search.everywhere.popup" timestamp="1600717870629">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="1099" y="240" width="672" height="678" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1600117617966" />
+    <state x="1099" y="240" width="672" height="678" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1600717870629" />
   </component>
 </project>

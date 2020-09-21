@@ -1,13 +1,13 @@
 import numpy as np
 import pandas as pd
-from datetime import date, datetime
+from datetime import date
 
 
 def main():
     """
         -- r49-73 --
         description:    Final script that fills out rows 2-5 and inserts formula calculations.
-        author notes:
+        author notes:   Not sure to count all admissions or just unique clients?
     """
     df = pd.read_csv('C:/Users/mingus/Documents/r2-5.csv')
     df['dob'] = pd.to_datetime(df.dob)
