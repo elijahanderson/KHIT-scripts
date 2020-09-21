@@ -20,9 +20,33 @@ def r6_14():
     curr_date = date.today().strftime('%b_%Y').lower()
 
     # sort the resulting outreaches into their appropriate row
-    for answer in df['answers_caption']:
-        if 'Community' in answer:
-            crisis_src.loc[11, curr_date] = crisis_src.loc[11, curr_date] + 1
+    by_client = df.groupby('full_name')
+    clients_checked = []
+    for client, frame in by_client:
+        for answer in frame['answers_caption']:
+            if 'Correctional' in answer:
+                if client not in clients_checked:
+                    crisis_src.loc[13, curr_date] = crisis_src.loc[13, curr_date] + 1
+                crisis_src.loc[4, curr_date] = crisis_src.loc[4, curr_date] + 1
+            if 'Nursing' in answer:
+                if client not in clients_checked:
+                    crisis_src.loc[13, curr_date] = crisis_src.loc[13, curr_date] + 1
+                crisis_src.loc[5, curr_date] = crisis_src.loc[5, curr_date] + 1
+            elif 'ER' in answer:
+                crisis_src.loc[6, curr_date] = crisis_src.loc[6, curr_date] + 1
+            elif 'Inpatient' in answer:
+                if client not in clients_checked:
+                    crisis_src.loc[13, curr_date] = crisis_src.loc[13, curr_date] + 1
+                crisis_src.loc[7, curr_date] = crisis_src.loc[7, curr_date] + 1
+            elif 'Med Unit' in answer:
+                if client not in clients_checked:
+                    crisis_src.loc[13, curr_date] = crisis_src.loc[13, curr_date] + 1
+                crisis_src.loc[8, curr_date] = crisis_src.loc[8, curr_date] + 1
+            elif 'Community' in answer:
+                if client not in clients_checked:
+                    crisis_src.loc[13, curr_date] = crisis_src.loc[13, curr_date] + 1
+                crisis_src.loc[11, curr_date] = crisis_src.loc[11, curr_date] + 1
+        clients_checked.append(client)
 
     # sum the column
     crisis_src.loc[12, curr_date] = crisis_src.loc[4:11, curr_date].sum()

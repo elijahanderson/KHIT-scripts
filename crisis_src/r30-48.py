@@ -6,7 +6,7 @@ from datetime import date
 def r30_48():
     """
         -- r30-48 --
-        description:    Adults admitted to Crisis in current month who are also enrolled in other client_programss/services
+        description:    Adults admitted to Crisis in current month who are also enrolled in other programs/services
         author notes:
     """
     df = pd.read_csv('C:/Users/mingus/Documents/r30-48.csv')
@@ -15,7 +15,7 @@ def r30_48():
     df["dob"] = pd.to_datetime(df.dob)
     df['dob'] = df['dob'].apply(lambda dob: (pd.to_datetime(today) - dob) / np.timedelta64(1, 'Y'))
     df = df[df['dob'] > 18]
-    # drop clients only enrolled in one client_programs
+    # drop clients only enrolled in one program
     df = df[df.duplicated(subset=['full_name'], keep=False)]
     df.sort_values(by=['full_name', 'actual_date'], inplace=True)
     df = df.reset_index()
