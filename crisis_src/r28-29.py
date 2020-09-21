@@ -29,8 +29,6 @@ def r28_29():
     outreaches = outreaches[['full_name', 'outreach_date']]
 
     df = df.merge(outreaches, on='full_name')
-    df.to_csv('C:/Users/mingus/Documents/merged.csv')
-    print(df)
 
     by_client = df.groupby('full_name')
     curr_date = date.today().strftime('%b_%Y').lower()
