@@ -3,7 +3,7 @@ import pandas as pd
 
 
 def claim_details():
-    filename = "C:/Users/mingus/Documents/" + str(dt.now().month-1) + "-" + str(dt.now().year) + "_claim_details.csv"
+    filename = "C:/Users/mingus/Documents/" + str(dt.now().month - 1) + "-" + str(dt.now().year) + "_claim_details.csv"
 
     csv = pd.read_csv("C:/Users/mingus/Documents/claim_details.csv", engine='python')
 
@@ -13,8 +13,7 @@ def claim_details():
     csv = csv.rename(columns={'from_date': 'actual_date'})
 
     csv = csv[["invoice_number", "payor_name", "actual_date", "amount_expected", "total_amount_paid",
-               "procedure_code", "client_name", "staff_name", "units", "facility_name", "facility_street_address_1",
-               "facility_city", "facility_state", "facility_zip_code"]]
+               "procedure_code", "client_name", "staff_name", "units", "rate_name"]]
     csv.sort_values(by=['payor_name', 'staff_name', 'procedure_code', 'actual_date', ], inplace=True)
 
     csv.to_csv(filename, index=False)
@@ -49,10 +48,20 @@ def claim_details():
 
     csv = csv.append(pd.Series(), ignore_index=True)
     csv = csv.append(total_row, ignore_index=True)
+    csv = csv.append(pd.Series(), ignore_index=True)
 
     csv['amount_expected'] = csv['amount_expected'].apply(lambda val: '${:,.2f}'.format(val))
     csv['total_amount_paid'] = csv['total_amount_paid'].apply(lambda val: '${:,.2f}'.format(val))
     csv = csv.replace('$nan', '')
+
+    csv = csv.append({'invoice_number': None, 'payor_name': None, 'actual_date': 'Off-Site Services:',
+                      'amount_expected': csv['rate_name'].value_counts()['TBS Off-Site 2018'],
+                      'total_amount_paid': None, 'procedure_code': None, 'client_name': None, 'staff_name': None},
+                     ignore_index=True)
+    csv = csv.append({'invoice_number': None, 'payor_name': None, 'actual_date': 'On-Site Services:',
+                      'amount_expected': csv['rate_name'].value_counts()['TBS On-Site 2018'],
+                      'total_amount_paid': None, 'procedure_code': None, 'client_name': None, 'staff_name': None},
+                     ignore_index=True)
 
     csv.to_csv(filename, index=False)
 
