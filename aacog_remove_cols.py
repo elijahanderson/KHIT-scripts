@@ -13,24 +13,27 @@ def main():
     report.to_excel(filename, index=False)
 
 
-if __name__ == '__main__':
-    while True:
-        try:
-            main()
-        except FileCreateError:
-            messagebox.showerror('Error', 'Cannot edit file while it is open. Please close the file and try again.')
-            continue
-        except KeyError:
-            messagebox.showerror('Error', 'One of the columns specified for deletion does not exist. Please ensure you '
-                                          'have selected the correct file and try again. If the error persists, please '
-                                          'contact Eli Anderson at eanderson@khitconsulting.com')
-            continue
-        except Exception as e:
-            messagebox.showerror('Fatal Error', 'An unexpected error has occurred. Please contact Eli Anderson at '
-                                                'eanderson@khitconsulting.com and include this error message: ' + str(e)
-                                 )
-        break
-    messagebox.showinfo('Success', 'Columns successfully deleted!')
+while True:
+    try:
+        main()
+    except FileCreateError:
+        messagebox.showerror('Error', 'Cannot edit file while it is open. Please close the file and try again.')
+        continue
+    except KeyError:
+        messagebox.showerror('Error', 'One of the columns specified for deletion does not exist. Please ensure you '
+                                      'have selected the correct file and try again. If the error persists, please '
+                                      'contact Eli Anderson at eanderson@khitconsulting.com')
+        continue
+    except FileNotFoundError:
+        messagebox.showerror('Error', 'File does not exist.')
+        quit()
+    except Exception as e:
+        messagebox.showerror('Fatal Error', 'An unexpected error has occurred. Please contact Eli Anderson at '
+                                            'eanderson@khitconsulting.com and include this error message: ' + str(e)
+                             )
+        quit()
+    break
+messagebox.showinfo('Success', 'Columns successfully deleted!')
 
 
 
