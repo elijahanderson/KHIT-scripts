@@ -34,6 +34,3 @@ while True:
         quit()
     break
 messagebox.showinfo('Success', 'Columns successfully deleted!')
-
-
-
