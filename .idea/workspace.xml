@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7f09f7cd-a22b-474b-aee7-7537f4fb6d52" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/KHIT-scripts.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/KHIT-scripts.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aacog_remove_cols.py" beforeDir="false" afterPath="$PROJECT_DIR$/aacog_remove_cols.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crisis_src/crisis_sfy_2021.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/crisis_src/crisis_sfy_2021.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crisis_src/r17.py" beforeDir="false" afterPath="$PROJECT_DIR$/crisis_src/r17.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crisis_src/r27.py" beforeDir="false" afterPath="$PROJECT_DIR$/crisis_src/r27.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +39,7 @@
       <recent name="D:\KHIT docs\KHIT-scripts\crisis_src" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.aacog_remove_cols">
+  <component name="RunManager" selected="Python.r17">
     <configuration name="aacog_remove_cols" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="KHIT-scripts" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -82,7 +82,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="r22-26" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="r17" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="KHIT-scripts" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -94,7 +94,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/crisis_src/r22-26.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/crisis_src/r17.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -147,11 +147,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.r17" />
         <item itemvalue="Python.aacog_remove_cols" />
         <item itemvalue="Python.claim_details" />
         <item itemvalue="Python.r6-14" />
         <item itemvalue="Python.r28-29" />
-        <item itemvalue="Python.r22-26" />
       </list>
     </recent_temporary>
   </component>
@@ -190,25 +190,25 @@
     </state>
     <state x="1220" y="296" key="FileChooserDialogImpl/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1601657955544" />
     <state x="1220" y="296" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1599247951802" />
-    <state width="1899" height="284" key="GridCell.Tab.0.bottom" timestamp="1603901184258">
+    <state width="938" height="286" key="GridCell.Tab.0.bottom" timestamp="1604528929446">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1899" height="284" key="GridCell.Tab.0.bottom/0.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1603901184258" />
+    <state width="938" height="286" key="GridCell.Tab.0.bottom/0.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1604528929446" />
     <state width="934" height="359" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1600886185352" />
-    <state width="1899" height="284" key="GridCell.Tab.0.center" timestamp="1603901184258">
+    <state width="938" height="286" key="GridCell.Tab.0.center" timestamp="1604528929446">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1899" height="284" key="GridCell.Tab.0.center/0.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1603901184258" />
+    <state width="938" height="286" key="GridCell.Tab.0.center/0.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1604528929446" />
     <state width="934" height="359" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1600886185352" />
-    <state width="1899" height="284" key="GridCell.Tab.0.left" timestamp="1603901184258">
+    <state width="938" height="286" key="GridCell.Tab.0.left" timestamp="1604528929446">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1899" height="284" key="GridCell.Tab.0.left/0.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1603901184258" />
+    <state width="938" height="286" key="GridCell.Tab.0.left/0.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1604528929446" />
     <state width="934" height="359" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1600886185352" />
-    <state width="1899" height="284" key="GridCell.Tab.0.right" timestamp="1603901184258">
+    <state width="938" height="286" key="GridCell.Tab.0.right" timestamp="1604528929446">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state width="1899" height="284" key="GridCell.Tab.0.right/0.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1603901184258" />
+    <state width="938" height="286" key="GridCell.Tab.0.right/0.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1604528929446" />
     <state width="934" height="359" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1600886185352" />
     <state width="934" height="359" key="GridCell.Tab.1.bottom" timestamp="1600886185352">
       <screen x="0" y="0" width="1920" height="1080" />
@@ -230,10 +230,10 @@
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="2381" y="183" key="SettingsEditor/0.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1603900479735" />
-    <state x="953" y="0" width="974" height="1087" key="dock-window-1" timestamp="1603899846873">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state x="2873" y="0" width="974" height="1087" key="dock-window-1" timestamp="1604528351970">
+      <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state x="953" y="0" width="974" height="1087" key="dock-window-1/0.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1603899846873" />
+    <state x="2873" y="0" width="974" height="1087" key="dock-window-1/0.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1604528351970" />
     <state x="953" y="0" width="974" height="1087" key="dock-window-1/0.0.1920.1080@0.0.1920.1080" timestamp="1600463019498" />
     <state x="1136" y="275" width="607" height="536" key="find.popup" timestamp="1599772665632">
       <screen x="0" y="0" width="1920" height="1080" />
@@ -251,6 +251,10 @@
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/crisis_src/r28-29.py</url>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/crisis_src/r27.py</url>
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

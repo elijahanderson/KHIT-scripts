@@ -15,11 +15,11 @@ def r27():
     df["dob"] = pd.to_datetime(df.dob)
     df['dob'] = df['dob'].apply(lambda dob: (pd.to_datetime(today) - dob) / np.timedelta64(1, 'Y'))
     df = df[df['dob'] > 18]
+
     curr_date = date.today().strftime('%b_%Y').lower()
     crisis_src = pd.read_excel('D:/KHIT docs/KHIT-scripts/crisis_src/crisis_sfy_2021.xlsx')
     # set row 27 to the length of the dataframe
     crisis_src.loc[25, curr_date] = len(df)
-
     # sum the row
     crisis_src.loc[25, 'SFY 2021 Total'] = crisis_src.iloc[25, 4:16].sum()
 
