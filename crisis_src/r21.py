@@ -1,4 +1,3 @@
-import numpy as np
 import pandas as pd
 from datetime import date, timedelta
 
@@ -11,8 +10,6 @@ def r21():
                         requirements.
     """
     df = pd.read_csv('C:/Users/mingus/Documents/r21.csv')
-    # Drop unique rows -- target clients will have more than one enrollment event
-    df = df.reset_index()
 
     curr_date = (date.today().replace(day=1) - timedelta(days=1)).strftime('%b_%Y').lower()
     crisis_src = pd.read_excel('D:/KHIT docs/KHIT-scripts/crisis_src/crisis_sfy_2021.xlsx')
