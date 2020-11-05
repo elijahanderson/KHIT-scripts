@@ -10,24 +10,11 @@ def r30_48():
         author notes:
     """
     df = pd.read_csv('C:/Users/mingus/Documents/r30-48.csv')
-    # drop all clients less than 18 y/o
-    today = date.today().strftime('%Y-%m-%d')
-    df["dob"] = pd.to_datetime(df.dob)
-    df['dob'] = df['dob'].apply(lambda dob: (pd.to_datetime(today) - dob) / np.timedelta64(1, 'Y'))
-    df = df[df['dob'] > 18]
-    # drop clients only enrolled in one program
-    df = df[df.duplicated(subset=['full_name'], keep=False)]
-    df.sort_values(by=['full_name', 'actual_date'], inplace=True)
-    df = df.reset_index()
-
-    # drop all clients not enrolled in Crisis
-    by_client = df.groupby('full_name')
-    for client, frame in by_client:
-        if 'Crisis Screening Services' not in frame['program_name'].values:
-            df = df.drop(frame['program_name'].index)
+    df = df.rename(columns={'Other Programs': 'program', 'USTF Emergency Screening #28': 'answer_val'})
 
     crisis_src = pd.read_excel('D:/KHIT docs/KHIT-scripts/crisis_src/crisis_sfy_2021.xlsx')
     curr_date = date.today().strftime('%b_%Y').lower()
+
     program_list = ['Jail', 'EISS', 'IOTSS', 'PACT', 'Partial Care', 'Adult Outpatient', 'ICMS', 'Supportive Housing',
                     'Housing Stabilization', 'Residential Intensive', 'Oasis II', 'Homestretch',
                     'Children\'s Residential', 'Harvey\'s Haven', 'Medford Meadows', 'PATH', 'Justice Involved',
@@ -36,92 +23,83 @@ def r30_48():
                     'Keeping Families', 'Crisis Diversion', 'Trauma Informed', 'IFSS', 'Straight to Treatment',
                     'STAR', 'Addictions', 'Opioid', 'Involuntary Outpatient Commitment']
 
-    # for each client, if they are enrolled in a client_programs other than Crisis, increment the appropriate row by 1
-    by_client = df.groupby('full_name')
-    for client, frame in by_client:
-        client_programs = frame['program_name'].unique()
-        categories_checked = []
-        for program in client_programs:
-            if program != 'Crisis Screening Services':
-                if 'Jail' in program and 28 not in categories_checked:
-                    crisis_src.loc[28, curr_date] = crisis_src.loc[28, curr_date] + 1
-                    categories_checked.append(28)
-                elif 'EISS' in program and 29 not in categories_checked:
-                    crisis_src.loc[29, curr_date] = crisis_src.loc[29, curr_date] + 1
-                    categories_checked.append(29)
-                elif 'IOTSS' in program and 30 not in categories_checked:
-                    crisis_src.loc[30, curr_date] = crisis_src.loc[30, curr_date] + 1
-                    categories_checked.append(30)
-                elif 'PACT' in program and 31 not in categories_checked:
-                    crisis_src.loc[31, curr_date] = crisis_src.loc[31, curr_date] + 1
-                    categories_checked.append(31)
-                elif 'Partial Care' in program and 32 not in categories_checked:
-                    crisis_src.loc[32, curr_date] = crisis_src.loc[32, curr_date] + 1
-                    categories_checked.append(32)
-                elif 'Adult Outpatient' in program and 33 not in categories_checked:
-                    crisis_src.loc[33, curr_date] = crisis_src.loc[33, curr_date] + 1
-                    categories_checked.append(33)
-                elif 'ICMS' in program and 34 not in categories_checked:
-                    crisis_src.loc[34, curr_date] = crisis_src.loc[34, curr_date] + 1
-                    categories_checked.append(34)
-                elif (('Supportive Housing' in program)
-                      or ('Housing Stabilization' in program)
-                      or ('Residential Intensive' in program)) \
-                        and 35 not in categories_checked:
-                    crisis_src.loc[35, curr_date] = crisis_src.loc[35, curr_date] + 1
-                    categories_checked.append(35)
-                elif (('Oasis II' in program)
-                      or ('Homestretch' in program)
-                      or ('Children\'s Residential' in program)
-                      or ('Harvey\'s Haven' in program)
-                      or ('Medford Meadows' in program)) \
-                        and 36 not in categories_checked:
-                    crisis_src.loc[36, curr_date] = crisis_src.loc[36, curr_date] + 1
-                    categories_checked.append(36)
-                elif 'PATH' in program and 37 not in categories_checked:
-                    crisis_src.loc[37, curr_date] = crisis_src.loc[37, curr_date] + 1
-                    categories_checked.append(37)
-                elif 'Justice Involved' in program and 38 not in categories_checked:
-                    crisis_src.loc[38, curr_date] = crisis_src.loc[38, curr_date] + 1
-                    categories_checked.append(38)
-                elif(('Strengthening Families' in program)
-                     or ('Behavioral Health Home' in program)
-                     or ('FPS' in program)
-                     or ('CHR-P' in program)
-                     or ('Mobile Response' in program)
-                     or ('Clinical In-Home' in program)
-                     or ('PACS' in program)
-                     or ('Coordinated Specialty' in program)
-                     or ('Oasis Ancora' in program)
-                     or ('CCBHC' in program)
-                     or ('Pat Lebon' in program)
-                     or ('Keeping Families' in program)
-                     or ('Crisis Diversion' in program)
-                     or ('Trauma Informed' in program)
-                     or ('IFSS' in program)) \
-                        and 39 not in categories_checked:
-                    crisis_src.loc[39, curr_date] = crisis_src.loc[39, curr_date] + 1
-                    categories_checked.append(39)
-                # Nursing Facility /Assisted Living always 0
-                elif (('Straight to Treatment' in program)
-                      or ('STAR' in program)
-                      or ('Addictions' in program)
-                      or ('Opioid' in program)) \
-                        and 41 not in categories_checked:
-                    crisis_src.loc[41, curr_date] = crisis_src.loc[41, curr_date] + 1
-                    categories_checked.append(41)
-                # Veterans Admin Program always 0
-                # Family always 0
-                elif 'Involuntary Outpatient Commitment' in program and 44 not in categories_checked:
-                    crisis_src.loc[44, curr_date] = crisis_src.loc[44, curr_date] + 1
-                    categories_checked.append(44)
-                # if all the other categories have been checked, the program is uncategorized
-                elif not (any(program in iprogram for iprogram in program_list)
-                          or any(iprogram in program for iprogram in program_list)):
-                    crisis_src.loc[45, curr_date] = crisis_src.loc[45, curr_date] + 1
-                    categories_checked.append(45)
+    for idx, row in df.iterrows():
+        if pd.isna(row['answer_val']):
+            row['answer_val'] = ''
+        if pd.isna(row['program']):
+            row['program'] = ''
+        if 'Jail' in row['program'] or row['answer_val'] == 'Probation':
+            crisis_src.loc[28, curr_date] = crisis_src.loc[28, curr_date] + 1
+        elif 'EISS' in row['program'] or row['answer_val'] == 'Emergency/Mobile/Outreach Treatment Team':
+            crisis_src.loc[29, curr_date] = crisis_src.loc[29, curr_date] + 1
+        elif 'IOTSS' in row['program']:
+            crisis_src.loc[30, curr_date] = crisis_src.loc[30, curr_date] + 1
+        elif 'PACT' in row['program']:
+            crisis_src.loc[31, curr_date] = crisis_src.loc[31, curr_date] + 1
+        elif 'Partial Care' in row['program'] or row['answer_val'] == 'Partial Care':
+            crisis_src.loc[32, curr_date] = crisis_src.loc[32, curr_date] + 1
+        elif 'Adult Outpatient' in row['program'] or row['answer_val'] == 'Outpatient/Counseling':
+            crisis_src.loc[33, curr_date] = crisis_src.loc[33, curr_date] + 1
+        elif 'ICMS' in row['program']:
+            crisis_src.loc[34, curr_date] = crisis_src.loc[34, curr_date] + 1
+        elif (('Supportive Housing' in row['program'])
+              or ('Housing Stabilization' in row['program'])
+              or ('Residential Intensive' in row['program'])
+              or (row['answer_val'] == 'Residential Care')
+              or (row['answer_val'] == 'Supportive Housing (e.g. RIST)')):
+            crisis_src.loc[35, curr_date] = crisis_src.loc[35, curr_date] + 1
+        elif (('Oasis II' in row['program'])
+              or ('Homestretch' in row['program'])
+              or ('Children\'s Residential' in row['program'])
+              or ('Harvey\'s Haven' in row['program'])
+              or ('Medford Meadows' in row['program'])
+              or (row['answer_val'] == 'Group Homes with MH Services')):
+            crisis_src.loc[36, curr_date] = crisis_src.loc[36, curr_date] + 1
+        elif 'PATH' in row['program']:
+            crisis_src.loc[37, curr_date] = crisis_src.loc[37, curr_date] + 1
+        elif (('Justice Involved' in row['program'])
+              or ('Correction' in row['answer_val'])
+              or (row['answer_val'] == 'Justice Involved Services')
+              or (row['answer_val'] == 'Detention Center')):
+            crisis_src.loc[38, curr_date] = crisis_src.loc[38, curr_date] + 1
+        elif(('Strengthening Families' in row['program'])
+             or ('Behavioral Health Home' in row['program'])
+             or ('FPS' in row['program'])
+             or ('CHR-P' in row['program'])
+             or ('Mobile Response' in row['program'])
+             or ('Clinical In-Home' in row['program'])
+             or ('PACS' in row['program'])
+             or ('Coordinated Specialty' in row['program'])
+             or ('Oasis Ancora' in row['program'])
+             or ('CCBHC' in row['program'])
+             or ('Pat Lebon' in row['program'])
+             or ('Keeping Families' in row['program'])
+             or ('Crisis Diversion' in row['program'])
+             or ('Trauma Informed' in row['program'])
+             or ('IFSS' in row['program'])
+             or (row['answer_val'] == 'Other Mental Health Services (e.g. private practitioner)')):
+            crisis_src.loc[39, curr_date] = crisis_src.loc[39, curr_date] + 1
+        elif row['answer_val'] == 'Nursing Facility/Assisted Living':
+            crisis_src.loc[40, curr_date] = crisis_src.loc[40, curr_date] + 1
+        elif (('Straight to Treatment' in row['program'])
+              or ('STAR' in row['program'])
+              or ('Addictions' in row['program'])
+              or ('Opioid' in row['program'])
+              or (row['answer_val'] == 'Drug Treatment Program')):
+            crisis_src.loc[41, curr_date] = crisis_src.loc[41, curr_date] + 1
+        # veterans admin program always 0
+        elif row['answer_val'] == 'Family Crisis Intervention Unit (FCIU)':
+            crisis_src.loc[43, curr_date] = crisis_src.loc[43, curr_date] + 1
+        elif (('Involuntary Outpatient Commitment' in row['program'])
+              or (row['answer_val'] == 'Family Crisis Intervention Unit (FCIU)')):
+            crisis_src.loc[44, curr_date] = crisis_src.loc[44, curr_date] + 1
+        # if all the other categories have been checked, the program is uncategorized
+        elif not (any(row['program'] in iprogram for iprogram in program_list)
+                  or any(iprogram in row['program'] for iprogram in program_list)):
+            crisis_src.loc[45, curr_date] = crisis_src.loc[45, curr_date] + 1
+        # 'None' row always 0
 
-    # sum each program
+    # sum each row
     for idx, row in crisis_src.loc[28:45, :].iterrows():
         crisis_src.loc[idx, 'SFY 2021 Total'] = row.iloc[4:16].sum()
 
