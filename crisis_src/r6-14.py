@@ -1,6 +1,6 @@
 import numpy as np
 import pandas as pd
-from datetime import date
+from datetime import date, timedelta
 
 
 def r6_14():
@@ -17,7 +17,7 @@ def r6_14():
     df = df[df['dob'] > 18]
 
     crisis_src = pd.read_excel('D:/KHIT docs/KHIT-scripts/crisis_src/crisis_sfy_2021.xlsx')
-    curr_date = date.today().strftime('%b_%Y').lower()
+    curr_date = (date.today().replace(day=1) - timedelta(days=1)).strftime('%b_%Y').lower()
 
     # sort the resulting outreaches into their appropriate row
     by_client = df.groupby('full_name')

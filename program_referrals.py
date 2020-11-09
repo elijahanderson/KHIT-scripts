@@ -1,10 +1,11 @@
-from datetime import datetime as dt
+from datetime import date, timedelta
 import matplotlib.pyplot as plt
 import pandas as pd
 
 
 def program_referrals():
-    filename = "C:/Users/mingus/Documents/" + str(dt.now().month) + "-" + str(dt.now().year) + "_program_referrals.xlsx"
+    filename = "C:/Users/mingus/Documents/" + str((date.today().replace(day=1) - timedelta(days=1)).month) + "-" + \
+               str((date.today().replace(day=1) - timedelta(days=1)).year) + "_program_referrals.xlsx"
 
     xl_writer = pd.ExcelWriter(filename, engine='xlsxwriter')
     df = pd.read_csv('C:/Users/mingus/Documents/program_referrals.csv')

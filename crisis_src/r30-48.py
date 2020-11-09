@@ -1,6 +1,5 @@
-import numpy as np
 import pandas as pd
-from datetime import date
+from datetime import date, timedelta
 
 
 def r30_48():
@@ -13,7 +12,7 @@ def r30_48():
     df = df.rename(columns={'Other Programs': 'program', 'USTF Emergency Screening #28': 'answer_val'})
 
     crisis_src = pd.read_excel('D:/KHIT docs/KHIT-scripts/crisis_src/crisis_sfy_2021.xlsx')
-    curr_date = date.today().strftime('%b_%Y').lower()
+    curr_date = (date.today().replace(day=1) - timedelta(days=1)).strftime('%b_%Y').lower()
 
     program_list = ['Jail', 'EISS', 'IOTSS', 'PACT', 'Partial Care', 'Adult Outpatient', 'ICMS', 'Supportive Housing',
                     'Housing Stabilization', 'Residential Intensive', 'Oasis II', 'Homestretch',

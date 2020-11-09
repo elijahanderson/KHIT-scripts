@@ -1,6 +1,6 @@
 import numpy as np
 import pandas as pd
-from datetime import date
+from datetime import date, timedelta
 
 
 def main():
@@ -13,9 +13,9 @@ def main():
     df['dob'] = pd.to_datetime(df.dob)
 
     crisis_src = pd.read_excel('D:/KHIT docs/KHIT-scripts/crisis_src/crisis_sfy_2021.xlsx')
-    curr_date_col = date.today().strftime('%b_%Y').lower()
+    curr_date_col = (date.today().replace(day=1) - timedelta(days=1)).strftime('%b_%Y').lower()
     time_format = '%Y-%m-%d'
-    curr_date = date.today().strftime(time_format)
+    curr_date = (date.today().replace(day=1) - timedelta(days=1)).strftime(time_format)
 
     # for every client, increment the appropriate row based on their age (>=18 and <18) as well as the total row
     by_client = df.groupby('full_name')

@@ -1,6 +1,6 @@
 import numpy as np
 import pandas as pd
-from datetime import date
+from datetime import date, timedelta
 
 
 def r22_26():
@@ -18,7 +18,7 @@ def r22_26():
     df = df[df['program_name'] == 'Crisis Screening Services']
 
     crisis_src = pd.read_excel('D:/KHIT docs/KHIT-scripts/crisis_src/crisis_sfy_2021.xlsx')
-    curr_date = date.today().strftime('%b_%Y').lower()
+    curr_date = (date.today().replace(day=1) - timedelta(days=1)).strftime('%b_%Y').lower()
 
     # sort the hospitals into their appropriate row
     for answer in df['answers_caption']:
