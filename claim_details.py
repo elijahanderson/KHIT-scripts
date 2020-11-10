@@ -1,9 +1,9 @@
-from datetime import datetime as dt
+from datetime import date, timedelta
 import pandas as pd
 
 
 def claim_details():
-    filename = "C:/Users/mingus/Documents/" + str(dt.now().month - 1) + "-" + str(dt.now().year) + "_claim_details.csv"
+    filename = "C:/Users/mingus/Documents/" + str((date.today().replace(day=1) - timedelta(days=1)).month) + "-" + str((date.today().replace(day=1) - timedelta(days=1)).year) + "_claim_details.csv"
 
     csv = pd.read_csv("C:/Users/mingus/Documents/claim_details.csv", engine='python')
 

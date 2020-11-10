@@ -1,5 +1,4 @@
 from datetime import date, timedelta
-import matplotlib.pyplot as plt
 import pandas as pd
 
 
@@ -22,13 +21,6 @@ def program_referrals():
     # worksheet.insert_image('A20', 'program_referrals.png')
 
     xl_writer.save()
-
-
-def test():
-    filename = "C:/Users/mingus/Documents/" + str(dt.now().month) + "-" + str(dt.now().year) + "_program_referrals.xlsx"
-
-    df = pd.read_csv('C:/Users/mingus/Documents/program_referrals.csv')
-    df.to_csv(filename)
 
 
 program_referrals()

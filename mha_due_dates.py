@@ -1,4 +1,4 @@
-from datetime import datetime as dt
+from datetime import date, timedelta
 import pandas as pd
 
 
@@ -15,5 +15,6 @@ def mha_due_dates():
     merged['due_date'] = pd.to_datetime(merged.due_date)
     merged.sort_values(by=['name', 'due_date'], inplace=True, ascending=[True, True])
 
-    merged.to_csv("C:/Users/mingus/Documents/" + str(dt.now().month + 1) + "-" + str(dt.now().month + 2) + "-" +
-                  str(dt.now().year) + "_mha_due_dates.csv", index=False)
+    merged.to_csv("C:/Users/mingus/Documents/" + str((date.today().replace(day=1) + timedelta(days=31)).month) + "-" +
+                  str((date.today().replace(day=1) + timedelta(days=62)).month) + "-" +
+                  str((date.today().replace(day=1) + timedelta(days=62)).year) + "_mha_due_dates.csv", index=False)
