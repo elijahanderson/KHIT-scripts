@@ -15,9 +15,9 @@ def r28_29():
     crisis_src = pd.read_excel('D:/KHIT docs/KHIT-scripts/crisis_src/crisis_sfy_2021.xlsx')
 
     for idx, row in df.iterrows():
-        if row['time_diff'] >= 120:
+        if row['SecureStatus'] == 'Secured':
             crisis_src.loc[27, curr_date] = crisis_src.loc[27, curr_date] + 1
-        elif 60 <= row['time_diff'] < 120:
+        elif row['SecureStatus'] == 'Unsecured':
             crisis_src.loc[26, curr_date] = crisis_src.loc[26, curr_date] + 1
 
     # sum each program

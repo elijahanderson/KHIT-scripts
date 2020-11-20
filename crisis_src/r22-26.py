@@ -26,11 +26,11 @@ def r22_26():
             crisis_src.loc[20, curr_date] = crisis_src.loc[20, curr_date] + 1
         if 'Other Involuntary Facility' in answer:
             crisis_src.loc[21, curr_date] = crisis_src.loc[21, curr_date] + 1
-        if 'Voluntary Inpatient Facility' in answer:
+        if 'County' in answer:
             crisis_src.loc[22, curr_date] = crisis_src.loc[22, curr_date] + 1
         if 'State' in answer:
             crisis_src.loc[23, curr_date] = crisis_src.loc[23, curr_date] + 1
-        if 'County' in answer:
+        if 'Voluntary Inpatient Facility' in answer:
             crisis_src.loc[24, curr_date] = crisis_src.loc[24, curr_date] + 1
 
     # sum each row

@@ -19,34 +19,19 @@ def r6_14():
     crisis_src = pd.read_excel('D:/KHIT docs/KHIT-scripts/crisis_src/crisis_sfy_2021.xlsx')
     curr_date = (date.today().replace(day=1) - timedelta(days=1)).strftime('%b_%Y').lower()
 
-    # sort the resulting outreaches into their appropriate row
-    by_client = df.groupby('full_name')
-    clients_checked = []
-    for client, frame in by_client:
-        for answer in frame['answers_caption']:
-            if 'Correctional' in answer:
-                if client not in clients_checked:
-                    crisis_src.loc[13, curr_date] = crisis_src.loc[13, curr_date] + 1
-                crisis_src.loc[4, curr_date] = crisis_src.loc[4, curr_date] + 1
-            if 'Nursing' in answer:
-                if client not in clients_checked:
-                    crisis_src.loc[13, curr_date] = crisis_src.loc[13, curr_date] + 1
-                crisis_src.loc[5, curr_date] = crisis_src.loc[5, curr_date] + 1
-            elif 'ER' in answer:
-                crisis_src.loc[6, curr_date] = crisis_src.loc[6, curr_date] + 1
-            elif 'Inpatient' in answer:
-                if client not in clients_checked:
-                    crisis_src.loc[13, curr_date] = crisis_src.loc[13, curr_date] + 1
-                crisis_src.loc[7, curr_date] = crisis_src.loc[7, curr_date] + 1
-            elif 'Med Unit' in answer:
-                if client not in clients_checked:
-                    crisis_src.loc[13, curr_date] = crisis_src.loc[13, curr_date] + 1
-                crisis_src.loc[8, curr_date] = crisis_src.loc[8, curr_date] + 1
-            elif 'Community' in answer:
-                if client not in clients_checked:
-                    crisis_src.loc[13, curr_date] = crisis_src.loc[13, curr_date] + 1
-                crisis_src.loc[11, curr_date] = crisis_src.loc[11, curr_date] + 1
-        clients_checked.append(client)
+    for idx, row in df.iterrows():
+        if 'Correctional' in row['answers_caption']:
+            crisis_src.loc[4, curr_date] = crisis_src.loc[4, curr_date] + 1
+        if 'Nursing' in row['answers_caption']:
+            crisis_src.loc[5, curr_date] = crisis_src.loc[5, curr_date] + 1
+        elif 'ER' in row['answers_caption']:
+            crisis_src.loc[6, curr_date] = crisis_src.loc[6, curr_date] + 1
+        elif 'Inpatient' in row['answers_caption']:
+            crisis_src.loc[7, curr_date] = crisis_src.loc[7, curr_date] + 1
+        elif 'Med Unit' in row['answers_caption']:
+            crisis_src.loc[8, curr_date] = crisis_src.loc[8, curr_date] + 1
+        elif 'Community' in row['answers_caption']:
+            crisis_src.loc[11, curr_date] = crisis_src.loc[11, curr_date] + 1
 
     # sum the column
     crisis_src.loc[12, curr_date] = crisis_src.loc[4:11, curr_date].sum()

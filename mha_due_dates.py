@@ -18,3 +18,6 @@ def mha_due_dates():
     merged.to_csv("C:/Users/mingus/Documents/" + str((date.today().replace(day=1) + timedelta(days=31)).month) + "-" +
                   str((date.today().replace(day=1) + timedelta(days=62)).month) + "-" +
                   str((date.today().replace(day=1) + timedelta(days=62)).year) + "_mha_due_dates.csv", index=False)
+
+
+mha_due_dates()
