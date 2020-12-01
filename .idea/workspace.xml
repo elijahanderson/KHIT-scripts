@@ -2,12 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7f09f7cd-a22b-474b-aee7-7537f4fb6d52" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/foo/foo_selenium.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/KHIT-scripts.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/KHIT-scripts.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/crisis_src/crisis_sfy_2021.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/crisis_src/crisis_sfy_2021.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crisis_src/r17.py" beforeDir="false" afterPath="$PROJECT_DIR$/crisis_src/r17.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crisis_src/r18-20.py" beforeDir="false" afterPath="$PROJECT_DIR$/crisis_src/r18-20.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crisis_src/r2-5.py" beforeDir="false" afterPath="$PROJECT_DIR$/crisis_src/r2-5.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/crisis_src/r22-26.py" beforeDir="false" afterPath="$PROJECT_DIR$/crisis_src/r22-26.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/crisis_src/r28-29.py" beforeDir="false" afterPath="$PROJECT_DIR$/crisis_src/r28-29.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/crisis_src/r6-14.py" beforeDir="false" afterPath="$PROJECT_DIR$/crisis_src/r6-14.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mha_due_dates.py" beforeDir="false" afterPath="$PROJECT_DIR$/mha_due_dates.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,8 +47,8 @@
       <recent name="D:\KHIT docs\KHIT-scripts\crisis_src" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.r6-14">
-    <configuration name="claim_details" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.r28-29">
+    <configuration name="foo_selenium" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="KHIT-scripts" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -50,11 +56,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/foo" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/claim_details.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/foo/foo_selenium.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -63,7 +69,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="mha_due_dates" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="r18-20" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="KHIT-scripts" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -71,11 +77,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/crisis_src" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/mha_due_dates.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/crisis_src/r18-20.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -105,7 +111,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="r30-48" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="r22-26" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="KHIT-scripts" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -117,7 +123,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/crisis_src/r30-48.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/crisis_src/r22-26.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -126,7 +132,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="r6-14" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="r28-29" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="KHIT-scripts" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -138,7 +144,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/crisis_src/r6-14.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/crisis_src/r28-29.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -149,11 +155,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.r6-14" />
-        <item itemvalue="Python.mha_due_dates" />
-        <item itemvalue="Python.claim_details" />
+        <item itemvalue="Python.r28-29" />
+        <item itemvalue="Python.r22-26" />
+        <item itemvalue="Python.r18-20" />
         <item itemvalue="Python.r2-5" />
-        <item itemvalue="Python.r30-48" />
+        <item itemvalue="Python.foo_selenium" />
       </list>
     </recent_temporary>
   </component>
@@ -187,36 +193,37 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="828" y="199" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1600384175773" />
-    <state x="1220" y="296" key="FileChooserDialogImpl" timestamp="1601657955544">
+    <state x="1220" y="296" key="FileChooserDialogImpl" timestamp="1606255762483">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
+    <state x="1220" y="296" key="FileChooserDialogImpl/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1606255762483" />
     <state x="1220" y="296" key="FileChooserDialogImpl/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1601657955544" />
     <state x="1220" y="296" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1599247951802" />
-    <state width="1899" height="283" key="GridCell.Tab.0.bottom" timestamp="1605903104546">
+    <state width="1899" height="283" key="GridCell.Tab.0.bottom" timestamp="1606771532539">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1899" height="283" key="GridCell.Tab.0.bottom/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1605903104546" />
+    <state width="1899" height="283" key="GridCell.Tab.0.bottom/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1606771532539" />
     <state width="1899" height="283" key="GridCell.Tab.0.bottom/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1605033560757" />
     <state width="936" height="361" key="GridCell.Tab.0.bottom/0.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1604619794915" />
     <state width="1899" height="283" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1605044287264" />
-    <state width="1899" height="283" key="GridCell.Tab.0.center" timestamp="1605903104545">
+    <state width="1899" height="283" key="GridCell.Tab.0.center" timestamp="1606771532539">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1899" height="283" key="GridCell.Tab.0.center/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1605903104545" />
+    <state width="1899" height="283" key="GridCell.Tab.0.center/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1606771532539" />
     <state width="1899" height="283" key="GridCell.Tab.0.center/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1605033560757" />
     <state width="936" height="361" key="GridCell.Tab.0.center/0.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1604619794915" />
     <state width="1899" height="283" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1605044287264" />
-    <state width="1899" height="283" key="GridCell.Tab.0.left" timestamp="1605903104545">
+    <state width="1899" height="283" key="GridCell.Tab.0.left" timestamp="1606771532538">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1899" height="283" key="GridCell.Tab.0.left/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1605903104545" />
+    <state width="1899" height="283" key="GridCell.Tab.0.left/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1606771532538" />
     <state width="1899" height="283" key="GridCell.Tab.0.left/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1605033560757" />
     <state width="936" height="361" key="GridCell.Tab.0.left/0.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1604619794915" />
     <state width="1899" height="283" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1605044287263" />
-    <state width="1899" height="283" key="GridCell.Tab.0.right" timestamp="1605903104545">
+    <state width="1899" height="283" key="GridCell.Tab.0.right" timestamp="1606771532539">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1899" height="283" key="GridCell.Tab.0.right/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1605903104545" />
+    <state width="1899" height="283" key="GridCell.Tab.0.right/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1606771532539" />
     <state width="1899" height="283" key="GridCell.Tab.0.right/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1605033560757" />
     <state width="936" height="361" key="GridCell.Tab.0.right/0.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1604619794915" />
     <state width="1899" height="283" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1605044287264" />
@@ -240,9 +247,10 @@
     </state>
     <state width="936" height="361" key="GridCell.Tab.1.right/0.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1604619794915" />
     <state width="934" height="359" key="GridCell.Tab.1.right/0.0.1920.1080@0.0.1920.1080" timestamp="1600886185352" />
-    <state x="2381" y="183" key="SettingsEditor" timestamp="1603900479735">
-      <screen x="1920" y="0" width="1920" height="1080" />
+    <state x="461" y="183" key="SettingsEditor" timestamp="1606255796484">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
+    <state x="461" y="183" key="SettingsEditor/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1606255796484" />
     <state x="2381" y="183" key="SettingsEditor/0.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1603900479735" />
     <state x="2873" y="0" width="974" height="1087" key="dock-window-1" timestamp="1604942967660">
       <screen x="1920" y="0" width="1920" height="1080" />

@@ -16,9 +16,9 @@ def r28_29():
 
     for idx, row in df.iterrows():
         if row['SecureStatus'] == 'Secured':
-            crisis_src.loc[27, curr_date] = crisis_src.loc[27, curr_date] + 1
-        elif row['SecureStatus'] == 'Unsecured':
             crisis_src.loc[26, curr_date] = crisis_src.loc[26, curr_date] + 1
+        elif row['SecureStatus'] == 'Unsecured':
+            crisis_src.loc[27, curr_date] = crisis_src.loc[27, curr_date] + 1
 
     # sum each program
     for idx, row in crisis_src.loc[26:27, :].iterrows():

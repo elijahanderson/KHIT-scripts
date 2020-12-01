@@ -19,7 +19,7 @@ def r18_20():
         elif row['Row'] == 'Row 19':
             crisis_src.loc[17, curr_date] = crisis_src.loc[16, curr_date] + 1
         elif row['Row'] == 'Row 20':
-            crisis_src.loc[18, curr_date] = crisis_src.loc[16, curr_date] + 1
+            crisis_src.loc[18, curr_date] = crisis_src.loc[18, curr_date] + 1
 
     # sum each program
     for idx, row in crisis_src.loc[16:18, :].iterrows():

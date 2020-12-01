@@ -16,7 +16,7 @@ def r17():
     df = df.rename(columns={'Date of Birth': 'dob'})
     df['dob'] = pd.to_datetime(df.dob)
     df['dob'] = df['dob'].apply(lambda dob: (pd.to_datetime(today) - dob) / np.timedelta64(1, 'Y'))
-    df = df[df['dob'] > 18]
+    df = df[df['dob'] >= 18]
 
     curr_date = (date.today().replace(day=1) - timedelta(days=1)).strftime('%b_%Y').lower()
     crisis_src = pd.read_excel('D:/KHIT docs/KHIT-scripts/crisis_src/crisis_sfy_2021.xlsx')
