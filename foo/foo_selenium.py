@@ -10,6 +10,11 @@ from selenium.webdriver.support import expected_conditions as ec
 from time import sleep
 
 
+def last_day_of_month(month):
+    next_month = month.replace(day=28) + timedelta(days=4)
+    return next_month - timedelta(days=next_month.day)
+
+
 def join_datatables():
     tp_csv = pd.read_csv("C:/Users/mingus/Documents/treatment_due_dates.csv")
     pw_csv = pd.read_csv("C:/Users/mingus/Downloads/primary_workers.csv")
@@ -37,9 +42,9 @@ def join_datatables():
 
 
 def main():
-    next_month = (date.today().replace(day=28) + timedelta(days=4)).replace(day=1).strftime('%m/%d/%Y')
-    two_months = (datetime.strptime(next_month, '%m/%d/%Y').replace(day=28) + timedelta(days=4)).replace(day=1) \
-        .strftime('%m/%d/%Y')
+    from_date = date.today().replace(day=28) + timedelta(days=4)
+    to_date = from_date.replace(day=28) + timedelta(days=4)
+    to_date = last_day_of_month(to_date)
 
     driver = webdriver.Chrome(executable_path='C:\\Users\\mingus\\AppData\\Local\\chromedriver.exe')
     driver.get('https://myevolvacmhcxb.netsmartcloud.com/')
@@ -62,7 +67,7 @@ def main():
     driver.switch_to.frame(iframe2)
     driver.implicitly_wait(15)
     driver.find_element_by_xpath('/html/body/form/div[3]/div[2]/div[5]/div/div/div/div[2]/div[2]/div/input') \
-        .send_keys(two_months)
+        .send_keys(to_date.strftime('%m/%d/%Y'))
     driver.find_element_by_xpath('/html/body/form/div[3]/div[2]/div[5]/div/div/div/div[3]/div[2]/div/span').click()
 
     # switch back to default content for report selection
@@ -132,11 +137,11 @@ def main():
     driver.find_element_by_xpath(
         '/html/body/form/span[2]/span[2]/mainbody/span/span/div/table/tbody/tr[1]/td/span/table/tbody/tr[1]/td[2]/'
         'span[1]/input[1]'
-    ).send_keys(next_month)
+    ).send_keys(from_date.replace(day=1).strftime('%m/%d/%Y'))
     driver.find_element_by_xpath(
         '/html/body/form/span[2]/span[2]/mainbody/span/span/div/table/tbody/tr[1]/td/span/table/tbody/tr[1]/td[2]/'
         'span[2]/input[1]'
-    ).send_keys(two_months)
+    ).send_keys(to_date.strftime('%m/%d/%Y'))
     driver.find_element_by_xpath(
         '/html/body/form/span[2]/span[2]/mainbody/span/span/div/table/tbody/tr[2]/td/a[1]/input').click()
     driver.implicitly_wait(10)
