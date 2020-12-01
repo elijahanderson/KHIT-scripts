@@ -2,18 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7f09f7cd-a22b-474b-aee7-7537f4fb6d52" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/foo/foo_selenium.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/KHIT-scripts.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/KHIT-scripts.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crisis_src/crisis_sfy_2021.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/crisis_src/crisis_sfy_2021.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crisis_src/r17.py" beforeDir="false" afterPath="$PROJECT_DIR$/crisis_src/r17.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crisis_src/r18-20.py" beforeDir="false" afterPath="$PROJECT_DIR$/crisis_src/r18-20.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crisis_src/r2-5.py" beforeDir="false" afterPath="$PROJECT_DIR$/crisis_src/r2-5.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crisis_src/r22-26.py" beforeDir="false" afterPath="$PROJECT_DIR$/crisis_src/r22-26.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crisis_src/r28-29.py" beforeDir="false" afterPath="$PROJECT_DIR$/crisis_src/r28-29.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crisis_src/r6-14.py" beforeDir="false" afterPath="$PROJECT_DIR$/crisis_src/r6-14.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/foo/foo_selenium.py" beforeDir="false" afterPath="$PROJECT_DIR$/foo/foo_selenium.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +37,7 @@
       <recent name="D:\KHIT docs\KHIT-scripts\crisis_src" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.r28-29">
+  <component name="RunManager" selected="Python.foo_selenium">
     <configuration name="foo_selenium" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="KHIT-scripts" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -155,11 +145,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.foo_selenium" />
         <item itemvalue="Python.r28-29" />
         <item itemvalue="Python.r22-26" />
         <item itemvalue="Python.r18-20" />
         <item itemvalue="Python.r2-5" />
-        <item itemvalue="Python.foo_selenium" />
       </list>
     </recent_temporary>
   </component>
@@ -199,31 +189,31 @@
     <state x="1220" y="296" key="FileChooserDialogImpl/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1606255762483" />
     <state x="1220" y="296" key="FileChooserDialogImpl/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1601657955544" />
     <state x="1220" y="296" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1599247951802" />
-    <state width="1899" height="283" key="GridCell.Tab.0.bottom" timestamp="1606771532539">
+    <state width="936" height="283" key="GridCell.Tab.0.bottom" timestamp="1606790349492">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1899" height="283" key="GridCell.Tab.0.bottom/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1606771532539" />
+    <state width="936" height="283" key="GridCell.Tab.0.bottom/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1606790349492" />
     <state width="1899" height="283" key="GridCell.Tab.0.bottom/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1605033560757" />
     <state width="936" height="361" key="GridCell.Tab.0.bottom/0.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1604619794915" />
     <state width="1899" height="283" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1605044287264" />
-    <state width="1899" height="283" key="GridCell.Tab.0.center" timestamp="1606771532539">
+    <state width="936" height="283" key="GridCell.Tab.0.center" timestamp="1606790349492">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1899" height="283" key="GridCell.Tab.0.center/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1606771532539" />
+    <state width="936" height="283" key="GridCell.Tab.0.center/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1606790349492" />
     <state width="1899" height="283" key="GridCell.Tab.0.center/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1605033560757" />
     <state width="936" height="361" key="GridCell.Tab.0.center/0.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1604619794915" />
     <state width="1899" height="283" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1605044287264" />
-    <state width="1899" height="283" key="GridCell.Tab.0.left" timestamp="1606771532538">
+    <state width="936" height="283" key="GridCell.Tab.0.left" timestamp="1606790349491">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1899" height="283" key="GridCell.Tab.0.left/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1606771532538" />
+    <state width="936" height="283" key="GridCell.Tab.0.left/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1606790349491" />
     <state width="1899" height="283" key="GridCell.Tab.0.left/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1605033560757" />
     <state width="936" height="361" key="GridCell.Tab.0.left/0.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1604619794915" />
     <state width="1899" height="283" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1605044287263" />
-    <state width="1899" height="283" key="GridCell.Tab.0.right" timestamp="1606771532539">
+    <state width="936" height="283" key="GridCell.Tab.0.right" timestamp="1606790349492">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1899" height="283" key="GridCell.Tab.0.right/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1606771532539" />
+    <state width="936" height="283" key="GridCell.Tab.0.right/0.0.1920.1080/-1920.0.1920.1080@0.0.1920.1080" timestamp="1606790349492" />
     <state width="1899" height="283" key="GridCell.Tab.0.right/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1605033560757" />
     <state width="936" height="361" key="GridCell.Tab.0.right/0.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1604619794915" />
     <state width="1899" height="283" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1605044287264" />
