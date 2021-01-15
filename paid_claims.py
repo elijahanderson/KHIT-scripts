@@ -3,9 +3,17 @@ import pandas as pd
 
 
 def paid_claims():
-    filename = "C:/Users/mingus/Documents/" + str((date.today().replace(day=1) - timedelta(days=1)).month) + "-" + str(
-        (date.today().replace(day=1) - timedelta(days=1)).year) + '_paid_claims.csv'
-    df = pd.read_csv('C:/Users/mingus/Documents/paid_claims.csv')
+    filename = 'C:/Users/mingus/Documents/' + \
+               (date.today().replace(day=1) - timedelta(days=1)).strftime('%b_%Y').lower() + '_paid_claims.csv'
+    pc_2017 = pd.read_csv('C:/Users/mingus/Documents/paid_claims_2017-18.csv', encoding='gbk')
+    pc_2018 = pd.read_csv('C:/Users/mingus/Documents/paid_claims_2018-19.csv', encoding='gbk')
+    pc_2019 = pd.read_csv('C:/Users/mingus/Documents/paid_claims_2019-20.csv', encoding='gbk')
+    pc_2020 = pd.read_csv('C:/Users/mingus/Documents/paid_claims_2020-21.csv', encoding='gbk')
+    pc_2021 = pd.read_csv('C:/Users/mingus/Documents/paid_claims_2021-22.csv', encoding='gbk')
+    df = pd.concat([pc_2017, pc_2018], axis=0, ignore_index=True)
+    df = pd.concat([df, pc_2019], axis=0, ignore_index=True)
+    df = pd.concat([df, pc_2020], axis=0, ignore_index=True)
+    df = pd.concat([df, pc_2021], axis=0, ignore_index=True)
     df = df[['invoice_number', 'submit_number', 'claim_type', 'claim_type_desc', 'receiver', 'is_self_pay', 'is_claim',
              'is_held', 'claim_held_reason', 'claim_held_reason_code', 'claim_held_reason2', 'claim_held_reason_code2',
              'payor_name', 'plan_name', 'is_in_contract', 'policy_num', 'service_date', 'duration',
@@ -21,7 +29,11 @@ def paid_claims():
              'icd9_code', 'icd10_code', 'description', 'claim_adjustment_reasons_code',
              'claim_adjustment_reasons_description']]
     df['service_date'] = pd.to_datetime(df.service_date)
-    df.sort_values(by=['payor_name', 'plan_name', 'service_date', 'last_name'], inplace=True)
+    df['check_date'] = pd.to_datetime(df.check_date)
+    from_date = (date.today().replace(day=1) - timedelta(days=1)).replace(day=1).strftime('%Y-%m-%d')
+    to_date = (date.today().replace(day=1) - timedelta(days=1)).strftime('%Y-%m-%d')
+    df = df.loc[(df['check_date'] >= pd.to_datetime(from_date)) & (df['check_date'] < pd.to_datetime(to_date))]
+    df.sort_values(by=['payor_name', 'plan_name', 'check_date', 'service_date', 'last_name'], inplace=True)
     df.to_csv(filename, index=False)
 
 

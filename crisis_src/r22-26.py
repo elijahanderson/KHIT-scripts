@@ -14,7 +14,8 @@ def r22_26():
     today = date.today().strftime('%Y-%m-%d')
     df["dob"] = pd.to_datetime(df.dob)
     df['dob'] = df['dob'].apply(lambda dob: (pd.to_datetime(today) - dob) / np.timedelta64(1, 'Y'))
-    df = df[df['dob'] >= 18]
+    print(df['dob'])
+    df = df[int(df['dob']) >= 18]
     df = df[df['program_name'] == 'Crisis Screening Services']
 
     crisis_src = pd.read_excel('D:/KHIT docs/KHIT-scripts/crisis_src/crisis_sfy_2021.xlsx')
